@@ -1,0 +1,107 @@
+<html>
+
+<head>
+
+	<% include ../partials/head.ejs %>
+	
+</head>
+
+<body class="skin-yellow sidebar-mini">
+<div class="wrapper">
+
+	<% include ../partials/header.ejs %>
+  
+	<!-- Left side column. contains the logo and sidebar -->
+	
+	<% include sidebar.ejs %>
+
+	</aside>
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+
+	<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				
+				
+			<small></small>
+			</h1>
+      
+		</section>
+
+    <!-- Main content -->
+    <section class="content">
+
+	<!-- Your Page Content Here -->
+	<!-- Default box -->
+    <!-- /.box-body -->
+	
+		<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">Enter Your Salary</h3>
+			</div>
+            <!-- /.box-header -->
+			<div class="container">
+			
+			<a href="javascript:document.location.href=getUrl();" class="btn btn-info" role="button">View Salary List</a>
+	
+	<form action="/financeSalary" method="POST">
+	<table class="table table-condensed">
+		<tr>
+		<td>Salary Description</td>
+		<td><input type="text" name="description" ></td>
+		</tr>
+		<tr>
+		<td>Salary Amount(RM)</td>
+		<td><input type="text" name="amount" ></td>
+		</tr>
+		<tr>
+		<td><p hidden><input type="text" name="month" id="month">
+		<input type="text" name="year" id="year"></p></td>
+		</tr>
+		<tr>
+		<td><input type="submit" value="Add Salary" class="btn btn-info"></td>
+		</tr>
+	</table>
+	
+	</form>
+	<script>
+		var d = new Date();
+		document.querySelector("#month").value = d.getMonth()+1;
+		document.querySelector("#year").value = d.getFullYear();
+		
+		function getUrl()
+        {
+            return "/income/"+d.getFullYear();
+        }
+	</script>
+			</div>
+            
+          </div>
+		</div>
+	<!-- /.box -->
+
+   </section>
+		<!-- /.content -->
+</div>
+
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+  
+  <% include ../partials/footer.ejs %> 
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+<!-- jQuery 2.2.3 -->
+<script src="dashboard/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="dashboardbootstrap.min.js"></script>
+<!-- PACE -->
+<script src="https://ivoters.amanah.org.my/js/app.min.js"></script>
+
+</body>
+
+</html>

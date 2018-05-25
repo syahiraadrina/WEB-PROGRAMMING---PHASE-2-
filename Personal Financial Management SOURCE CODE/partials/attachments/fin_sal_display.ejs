@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+	<% include ../partials/head.ejs %>
+	
+</head>
+
+<body class="skin-yellow sidebar-mini">
+<div class="wrapper">
+
+	<% include ../partials/header.ejs %>
+  
+	<!-- Left side column. contains the logo and sidebar -->
+	
+	<% include sidebar.ejs %>
+
+	
+
+	<!-- Content Wrapper. Contains page content -->
+	<div class="content-wrapper">
+
+	<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>
+				SIGN IN
+				
+			<small></small>
+			</h1>
+      
+		</section>
+
+    <!-- Main content -->
+    <section class="content">
+
+	<!-- Your Page Content Here -->
+	<!-- Default box -->
+    <!-- /.box-body -->
+	
+	<div class="box box-info">
+			<div class="box-header with-border">
+				<h3 class="box-title">Financial Salary Display </h3>
+			</div>
+            <!-- /.box-header -->
+			<div class="container">
+			<a href="/financeSalary">Back</a>
+	
+	<table style="width:100%" border="1">
+		
+		<% if( Array.isArray(products) ) { %>
+		<tr>
+			<th>No</th>
+			<th>Description</th>
+			<th>Salary</th>
+			<th>Remove</th>
+		</tr>
+		<tbody align="center">
+		<% var i=1,total=0; %>
+		<%products.forEach( function( prd ){ %>
+		
+		<tr>
+			<p hidden><%= prd._id %></p>
+			<td><%= i++ %></td>			
+			<td><%= prd.description %> </td>
+			<td><%= prd.amount %><% total=total+prd.amount;%> </td>
+			<td><a href="/removeSal/<%= prd._id %>">Remove</a></td>
+		</tr>
+		<% })}%>
+		</tbody>
+	</table>
+				
+	
+	
+			</div>
+            
+          </div>
+		</div>
+	<!-- /.box -->
+
+   </section>
+		<!-- /.content -->
+</div>
+
+  <!-- /.content-wrapper -->
+  <!-- Main Footer -->
+  
+  <% include ../partials/footer.ejs %> 
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+<!-- jQuery 2.2.3 -->
+<script src="dashboard/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="dashboardbootstrap.min.js"></script>
+<!-- PACE -->
+<script src="https://ivoters.amanah.org.my/js/app.min.js"></script>
+
+</body>
+
+</html>
